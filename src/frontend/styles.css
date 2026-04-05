@@ -1,0 +1,379 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: 640px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1d1d1f;
+}
+
+.app-header p {
+  font-size: 15px;
+  color: #6e6e73;
+  margin-top: 6px;
+}
+
+/* Step Indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  gap: 0;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  background: #e5e5ea;
+  color: #8e8e93;
+  transition: all 0.3s ease;
+}
+
+.step-circle.active {
+  background: #0071e3;
+  color: white;
+}
+
+.step-circle.done {
+  background: #34c759;
+  color: white;
+}
+
+.step-label {
+  font-size: 11px;
+  color: #8e8e93;
+  white-space: nowrap;
+}
+
+.step-label.active {
+  color: #0071e3;
+  font-weight: 600;
+}
+
+.step-line {
+  width: 60px;
+  height: 1px;
+  background: #e5e5ea;
+  margin: 0 8px;
+  margin-bottom: 22px;
+}
+
+.step-line.done {
+  background: #34c759;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1d1d1f;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6e6e73;
+  margin-bottom: 7px;
+  letter-spacing: 0.1px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #1d1d1f;
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  appearance: none;
+}
+
+.form-input:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.form-input.error {
+  border-color: #ff3b30;
+  box-shadow: 0 0 0 3px rgba(255, 59, 48, 0.12);
+}
+
+.form-input::placeholder {
+  color: #c7c7cc;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: #ff3b30;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 11px 22px;
+  border-radius: 980px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.btn-primary {
+  background: #0071e3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0077ed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.btn-secondary:hover {
+  background: #e8e8ed;
+}
+
+.btn-success {
+  background: #34c759;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #30b350;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Email preview */
+.email-textarea {
+  width: 100%;
+  min-height: 280px;
+  padding: 16px;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+  line-height: 1.6;
+  color: #1d1d1f;
+  background: #fafafa;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.email-textarea:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+  background: white;
+}
+
+/* Step 3 */
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.success-icon {
+  width: 28px;
+  height: 28px;
+  background: #34c759;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.success-text {
+  font-size: 14px;
+  color: #166534;
+  font-weight: 500;
+}
+
+.action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #f5f5f7;
+  border-radius: 12px;
+}
+
+.action-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.action-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1f;
+}
+
+.action-item-desc {
+  font-size: 12px;
+  color: #8e8e93;
+}
+
+.status-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 980px;
+  font-weight: 500;
+}
+
+.status-badge.loading {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.done {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Loading spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #d2d2d7;
+  border-top-color: #0071e3;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Copy feedback */
+.copy-feedback {
+  font-size: 13px;
+  color: #34c759;
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.copy-feedback.show {
+  opacity: 1;
+}

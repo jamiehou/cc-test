@@ -1,0 +1,16 @@
+{
+  "name": "cc-delivery-tool",
+  "version": "1.0.0",
+  "description": "软件激活码发货工具",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "exceljs": "^4.3.0",
+    "docxtemplater": "^3.40.0",
+    "pizzip": "^3.1.4"
+  }
+}
