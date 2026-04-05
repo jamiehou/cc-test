@@ -1,0 +1,10 @@
+Please check attached invoice and certificate for this PO.
+• License code: {激活码code}
+• Effective date: {生效日期，格式yyyy-mm-dd}
+• Expire date: {结束日期，格式yyyy-mm-dd}
+• Qty: {数量}
+
+Package download link:https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/pro/11.2.0.10330/100.903/WPSOffice_11.2.0.10330_Pro.exe
+How to activate WPS Office products with product keys：https://help.wps.com/articles/how-to-activate-wps-office-products-with-product-keys/
+
+Best Regards,
