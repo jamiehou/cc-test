@@ -1,0 +1,6 @@
+[
+  { "id": "business_annual", "label": "WPS Office For Business" },
+  { "id": "business_lifetime", "label": "WPS Office For Business (Lifetime)" },
+  { "id": "wps_pro_annual", "label": "WPS Pro" },
+  { "id": "others", "label": "Others" }
+]

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ':*)",
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)",
+      "Bash(curl -o react.development.js https://unpkg.com/react@18/umd/react.development.js)",
+      "Bash(curl -o react-dom.development.js https://unpkg.com/react-dom@18/umd/react-dom.development.js)",
+      "Bash(curl -o babel.min.js https://unpkg.com/@babel/standalone/babel.min.js)",
+      "Bash(curl -L -o react.development.js https://unpkg.com/react@18/umd/react.development.js)",
+      "Bash(curl -L -o react-dom.development.js https://unpkg.com/react-dom@18/umd/react-dom.development.js)",
+      "Bash(curl -L -o babel.min.js https://unpkg.com/@babel/standalone/babel.min.js)"
+    ]
+  }
+}
