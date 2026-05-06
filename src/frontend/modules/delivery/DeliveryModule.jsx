@@ -28,7 +28,9 @@ function addYears(dateStr, years) {
 
 // ===== Step1Form =====
 function Step1Form({ onNext, productTypes: availableTypes }) {
-  const types = availableTypes && availableTypes.length > 0 ? availableTypes : productTypes;
+  const rawTypes = availableTypes && availableTypes.length > 0 ? availableTypes : productTypes;
+  // Normalize: API returns {id, label}, hardcoded uses {value, label}
+  const types = rawTypes.map(t => ({ value: t.value || t.id, label: t.label }));
   const [productType, setProductType] = useState(types[0]?.value || 'business_annual');
   const [fields, setFields] = useState({
     clientName: '',
@@ -57,6 +59,16 @@ function Step1Form({ onNext, productTypes: availableTypes }) {
   function handleProductTypeChange(e) {
     const newType = e.target.value;
     setProductType(newType);
+
+    const duration = parseInt(fields.duration, 10) || 1;
+    if (newType === 'business_lifetime') {
+      setFields(f => ({ ...f, afterSalesDeadline: addYears(f.startDate, 3) }));
+    } else {
+      setFields(f => {
+        const endDate = addYears(f.startDate, duration);
+        return { ...f, endDate, afterSalesDeadline: endDate };
+      });
+    }
   }
 
   function handleChange(e) {
