@@ -249,12 +249,15 @@ function Step2EmailEdit({ formData, onNext, onPrev }) {
   function generateEmailContent() {
     if (!formData) return '';
     const visibleFields = fieldsConfig2[formData.productType] || [];
+    const isWpsPro = formData.productType === 'wps_pro_annual';
+    const codeLabel = isWpsPro ? 'Redeem Code' : 'License code';
+    const durationLabel = isWpsPro ? 'Membership Duration' : 'License Duration';
     const lines = [
       'Please check attached invoice and certificate for this PO.',
-      `• License code: ${formData.activationCode}`
+      `• ${codeLabel}: ${formData.activationCode}`
     ];
     lines.push(`• Product Type: ${formData.productTypeLabel || formData.productType}`);
-    if (visibleFields.includes('duration')) lines.push(`• License Duration: ${formData.duration} year(s)`);
+    if (visibleFields.includes('duration')) lines.push(`• ${durationLabel}: ${formData.duration} year(s)`);
     if (visibleFields.includes('startDate')) lines.push(`• Effective date: ${formData.startDate}`);
     if (visibleFields.includes('endDate')) lines.push(`• Expire date: ${formData.endDate}`);
     if (visibleFields.includes('afterSalesDeadline')) lines.push(`• Update Deadline: ${formData.afterSalesDeadline}`);
